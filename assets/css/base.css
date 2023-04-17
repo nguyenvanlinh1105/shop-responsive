@@ -1,0 +1,218 @@
+:root{
+    --primary-color:#ee4d2d;
+    --white-color:#fff;
+    --black-color:#000;
+    --text-color:#333;
+    --border-color:#dbdbdb;
+    
+    --header-height:120px;
+    --navbar-height:34px;
+    --header-with-search-height:calc(var(--header-height) - var(--navbar-height));
+    --star-gold-color:#ffce3e;
+    --star-gray-color:#ccc;
+    --header-sort-bar-height:46px;
+}
+*{
+    box-sizing: inherit;
+}
+html{
+    font-size:62.5%;
+    line-height:1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.grid__row{
+    display:flex;
+    flex-wrap: wrap;
+    margin-left:-5px;
+    margin-right:-5px;
+    
+}
+/* test */
+.grid__column-2{
+    padding-left:5px;
+    padding-right:5px;
+    width:16.6667%;
+}
+.grid__column-2-4{
+    padding-left:5px;
+    padding-right:5px;
+    width:20%;
+}
+.grid__column-10{
+    padding-left:5px;
+    padding-right:5px;
+    width:83.3333%;
+}
+/* animation */
+@keyframes FadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes growth{
+    from{
+        transform: scale(var(--growth-from));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* modal */
+.modal{
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    display:flex;
+    animation:FadeIn linear 0.2s;
+}
+.modal__overlay{
+    position:absolute;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal__body{
+    margin: auto;
+    position: relative;
+    z-index:1;
+    --growth-from:0.7;
+    --growth-to:1;
+    animation:  growth linear 0.2s;
+}
+/* button style */
+.btn{
+    height:34px;
+    min-width:124px;
+    text-decoration: none;
+    border:none;
+    border-radius: 2px;
+    font-size:1.5rem;
+    padding:0 12px;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height:1.6rem;
+
+}
+.btn.btn--normal:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.btn--size-s{
+    height:30px;
+    font-size: 1.2rem;
+    padding:0 8px;
+}
+.btn.btn--primary{
+    color:var(--white-color);
+    background-color: var(--primary-color);
+}
+.btn.btn--disabled{
+    color:#ebe0e0;
+    cursor: default;
+    background-color: #b3adad;
+}
+/* select-input */
+.select-input{
+    position: relative;
+    min-width:200px;
+    height:34px;
+    padding:0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    box-shadow: 0 1px 1px #999;
+}
+.select-input__label{
+    font-size: 1.4rem;
+}
+.select-input__icon{
+    font-size:1.4rem;
+    color:rgb(131,131,131);
+    position:relative;
+    top:1px;
+}
+.select-input:hover .select-input__list{
+    display:block;
+}
+.select-input__list{
+    position:absolute;
+    left:0;
+    right:0;
+    top:80%;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding:10px 16px;
+    list-style: none;
+    box-shadow: 0 1px 1px #cecaca;
+    display:none;
+    z-index: 1;
+}
+.select-input__list::before{
+    position:absolute;
+    content:"";
+    width:100%;
+    height:5px;
+    top:-5px;; 
+    left:0;
+    right:0;
+    background-color: transparent;
+}
+.select-input__link{
+    display: block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding:5px 0;
+    color:var(--text-color);
+}
+.select-input__link:hover{
+    color:var(--primary-color);
+}
+
+/*pagination  */
+.pagination{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination-item{
+    margin:0 12px;
+}
+.pagination-item__link{
+    --height:30px;
+    display:block;
+    text-decoration: none;
+    font-size:1.8rem;
+    font-weight: 300;
+    color:#939393;
+    min-width: 40px;
+    height:var(--height);
+    text-align: center;
+    line-height: var(--height);
+    border-radius: 2px;
+}
+.pagination-item__icon{
+
+}
+.pagination-item--active .pagination-item__link{
+    color:var(--white-color);
+    background-color: var(--primary-color);
+}
+.pagination-item--active .pagination-item__link:hover{
+    filter:brightness(0.9)
+}
+
+
+
+
